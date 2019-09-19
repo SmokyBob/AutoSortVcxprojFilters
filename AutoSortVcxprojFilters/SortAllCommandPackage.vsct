@@ -56,7 +56,7 @@
         <Parent guid="guidSortAllCommandPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPicArrows" />
         <Strings>
-          <ButtonText>Sort all vcxproj.filters files</ButtonText>
+          <ButtonText>Sort all sqlproj files</ButtonText>
         </Strings>
       </Button>
     </Buttons>

@@ -84,7 +84,7 @@ namespace AutoSortVcxprojFilters
 
             foreach (var proj in projects)
             {
-                VCXFilterSorter.Sort(proj.FullName + @".filters");
+                VCXFilterSorter.Sort(proj.FullName );
             }
         }
     }

@@ -47,7 +47,7 @@ namespace AutoSortVcxprojFilters
                 out pitemid,
                 out ppunkDocData);
 
-            if (fullDocumentName.EndsWith(@"vcxproj.filters"))
+            if (fullDocumentName.EndsWith(@"sqlproj"))
             {
                 VCXFilterSorter.Sort(fullDocumentName);
             }

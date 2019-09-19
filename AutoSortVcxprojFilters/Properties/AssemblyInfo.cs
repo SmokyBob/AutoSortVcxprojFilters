@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AutoSortVcxprojFilters")]
-[assembly: AssemblyDescription("Visual Studio Extension for auto sorting vcxproj.filters files")]
+[assembly: AssemblyTitle("AutoSortSqlProj")]
+[assembly: AssemblyDescription("Visual Studio Extension for auto sorting .sqlproj files")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Parallel Dimension")]
-[assembly: AssemblyProduct("AutoSortVcxprojFilters")]
+[assembly: AssemblyProduct("AutoSortSqlProj")]
 [assembly: AssemblyCopyright("(c) 2017 Parallel Dimension - Sander Cox")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
