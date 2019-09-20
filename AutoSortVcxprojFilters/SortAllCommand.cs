@@ -44,6 +44,17 @@ namespace AutoSortVcxprojFilters
 
             this.package = package as AutoSortPackage;
 
+            //this.package.GetServiceAsync(typeof(IMenuCommandService)).ContinueWith((task) =>
+            //{
+            //    OleMenuCommandService commandService = task.Result as OleMenuCommandService;
+            //    if (commandService != null)
+            //    {
+            //        var menuCommandID = new CommandID(CommandSet, CommandId);
+            //        var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
+            //        commandService.AddCommand(menuItem);
+            //    }
+            //});
+
             OleMenuCommandService commandService = this.package.GetServiceAsync(typeof(IMenuCommandService)).Result as OleMenuCommandService;
             if (commandService != null)
             {

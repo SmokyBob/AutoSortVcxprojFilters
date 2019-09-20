@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="AutoSortVcxprojFilters.Sander Cox.b6738a6b-ba4b-48e6-b4c2-d164eba03937" Version="1.0" Language="en-US" Publisher="Parallel Dimension" />
+        <Identity Id="BD75D511-769B-40CA-8981-708F9A39EE4E" Version="1.2" Language="en-US" Publisher="Mauro Solcia" />
         <DisplayName>Auto-sort SqlProj</DisplayName>
-        <Description xml:space="preserve">Automatically sort .sqlproj XML contents based on path. This solved issues with otherwise complicated 3-way merges that might occur when multiple people add files to the project.</Description>
+        <Description xml:space="preserve">"Automatically" sort .sqlproj XML contents based on path. This solved issues with otherwise complicated 3-way merges that might occur when multiple people add files to the project.</Description>
         <License>LICENSE</License>
     </Metadata>
     <Installation>
