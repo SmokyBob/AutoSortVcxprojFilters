@@ -1,3 +1,5 @@
+# TODO: Properly Update, this now works on sqlproj only
+
 # AutoSortVcxprojFilters
 
 <!-- Replace this badge with your own-->
