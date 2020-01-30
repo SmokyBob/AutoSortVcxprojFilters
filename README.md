@@ -4,7 +4,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/raqtpb72oh0t65qy?svg=true)](https://ci.appveyor.com/project/SmokyBob/autosortsqlproj/)
 
 <!-- Update the VS Gallery link after you upload the VSIX-->
-Get the [CI build](http://vsixgallery.com/extension/AutoSortVcxprojFilters.Sander Cox.b6738a6b-ba4b-48e6-b4c2-d164eba03937/).
+Get the [Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=SmokyBob.AutoSortSqlProj).
 
 ---------------------------------------
 
