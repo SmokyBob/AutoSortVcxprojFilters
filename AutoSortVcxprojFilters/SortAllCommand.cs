@@ -23,7 +23,7 @@ namespace AutoSortSqlProj
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("d01a3a77-427a-4d7f-a5f5-85f0ad7e88e8");
+        public static readonly Guid CommandSet = new Guid("9efcf168-e247-4de0-8edd-fae87ad59b6c");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -44,24 +44,13 @@ namespace AutoSortSqlProj
 
             this.package = package as AutoSortSqlProjPackage;
 
-            this.package.GetServiceAsync(typeof(IMenuCommandService)).ContinueWith((task) =>
+            OleMenuCommandService commandService = this.package.GetServiceAsync(typeof(IMenuCommandService)).Result as OleMenuCommandService;
+            if (commandService != null)
             {
-                OleMenuCommandService commandService = task.Result as OleMenuCommandService;
-                if (commandService != null)
-                {
-                    var menuCommandID = new CommandID(CommandSet, CommandId);
-                    var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
-                    commandService.AddCommand(menuItem);
-                }
-            });
-
-            //OleMenuCommandService commandService = this.package.GetServiceAsync(typeof(IMenuCommandService)).Result as OleMenuCommandService;
-            //if (commandService != null)
-            //{
-            //    var menuCommandID = new CommandID(CommandSet, CommandId);
-            //    var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
-            //    commandService.AddCommand(menuItem);
-            //}
+                var menuCommandID = new CommandID(CommandSet, CommandId);
+                var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
+                commandService.AddCommand(menuItem);
+            }
         }
 
         /// <summary>

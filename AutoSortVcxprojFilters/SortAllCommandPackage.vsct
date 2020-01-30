@@ -56,7 +56,7 @@
         <Parent guid="guidSortAllCommandPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPicArrows" />
         <Strings>
-          <ButtonText>Sort all sqlproj files</ButtonText>
+          <ButtonText>Sort all .sqlproj files</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -74,10 +74,10 @@
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidSortAllCommandPackage" value="{01a71080-33cd-4769-883b-07242c7c6c3e}" />
+    <GuidSymbol name="guidSortAllCommandPackage" value="{9efcf168-e247-4de0-8edd-fae87ad59b6c}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidSortAllCommandPackageCmdSet" value="{d01a3a77-427a-4d7f-a5f5-85f0ad7e88e8}">
+    <GuidSymbol name="guidSortAllCommandPackageCmdSet" value="{9efcf168-e247-4de0-8edd-fae87ad59b6c}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="SortAllCommandId" value="0x0100" />
     </GuidSymbol>

@@ -74,7 +74,7 @@ namespace AutoSortSqlProj
                 .Where(x => { return x?.Object != null; })
                 .ToArray();
         }
-        
+
         #region Package Members
         /// <summary>
         /// Initialization of the package; this method is called right after the package is sited, so this is the place
@@ -82,7 +82,7 @@ namespace AutoSortSqlProj
         /// </summary>
         protected override async System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
-            await base.InitializeAsync(cancellationToken, progress);
+            await JoinableTaskFactory.SwitchToMainThreadAsync();
 
             SortAllCommand.Initialize(this);
 
