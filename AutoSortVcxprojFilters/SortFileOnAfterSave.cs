@@ -2,13 +2,13 @@
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 
-namespace AutoSortVcxprojFilters
+namespace AutoSortSqlProj
 {
-    internal class SortFilterOnAfterSave : IVsRunningDocTableEvents
+    internal class SortFileOnAfterSave : IVsRunningDocTableEvents
     {
         IVsRunningDocumentTable m_IVsRunningDocumentTable;
 
-        public SortFilterOnAfterSave(IVsRunningDocumentTable i_IVsRunningDocumentTable)
+        public SortFileOnAfterSave(IVsRunningDocumentTable i_IVsRunningDocumentTable)
         {
             m_IVsRunningDocumentTable = i_IVsRunningDocumentTable;
         }
@@ -46,10 +46,10 @@ namespace AutoSortVcxprojFilters
                 out ppHier,
                 out pitemid,
                 out ppunkDocData);
-
+            //Sort only the sqlProj
             if (fullDocumentName.EndsWith(@"sqlproj"))
             {
-                VCXFilterSorter.Sort(fullDocumentName);
+                SqlProjSorter.Sort(fullDocumentName);
             }
 
             return VSConstants.S_OK;

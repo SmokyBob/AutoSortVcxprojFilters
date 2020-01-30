@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AutoSortSqlProj")]
 [assembly: AssemblyDescription("Visual Studio Extension for auto sorting .sqlproj files")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Parallel Dimension")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("AutoSortSqlProj")]
-[assembly: AssemblyCopyright("(c) 2017 Parallel Dimension - Sander Cox")]
+[assembly: AssemblyCopyright("(c) 2020 - Mauro Solcia")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

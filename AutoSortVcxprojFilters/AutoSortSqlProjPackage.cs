@@ -20,7 +20,7 @@ using System.Linq;
 using EnvDTE;
 using System.Threading;
 
-namespace AutoSortVcxprojFilters
+namespace AutoSortSqlProj
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -42,24 +42,24 @@ namespace AutoSortVcxprojFilters
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(AutoSortPackage.PackageGuidString)]
+    [Guid(AutoSortSqlProjPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionHasSingleProject_string, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionHasMultipleProjects_string, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionOpening_string, PackageAutoLoadFlags.BackgroundLoad)]
-    public sealed class AutoSortPackage : Microsoft.VisualStudio.Shell.AsyncPackage
+    public sealed class AutoSortSqlProjPackage : Microsoft.VisualStudio.Shell.AsyncPackage
     {
         /// <summary>
         /// AutoSortPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "01a71080-33cd-4769-883b-07242c7c6c3e";
+        public const string PackageGuidString = "9efcf168-e247-4de0-8edd-fae87ad59b6c";
 
         private EnvDTE.DTE m_dte;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AutoSortPackage"/> class.
+        /// Initializes a new instance of the <see cref="AutoSortSqlProjPackage"/> class.
         /// </summary>
-        public AutoSortPackage()
+        public AutoSortSqlProjPackage()
         {
             // Inside this method you can place any initialization code that does not require
             // any Visual Studio service because at this point the package object is created but
@@ -88,7 +88,7 @@ namespace AutoSortVcxprojFilters
 
             m_dte = await GetServiceAsync(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
             var runningDocumentTable = (IVsRunningDocumentTable)GetGlobalService(typeof(SVsRunningDocumentTable));
-            runningDocumentTable.AdviseRunningDocTableEvents(new SortFilterOnAfterSave(runningDocumentTable), out _);
+            runningDocumentTable.AdviseRunningDocTableEvents(new SortFileOnAfterSave(runningDocumentTable), out _);
         }
         #endregion
     }

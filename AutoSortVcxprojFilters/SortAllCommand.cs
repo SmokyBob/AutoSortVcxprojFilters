@@ -8,7 +8,7 @@ using System;
 using System.ComponentModel.Design;
 using Microsoft.VisualStudio.Shell;
 
-namespace AutoSortVcxprojFilters
+namespace AutoSortSqlProj
 {
     /// <summary>
     /// Command handler
@@ -28,7 +28,7 @@ namespace AutoSortVcxprojFilters
         /// <summary>
         /// VS Package that provides this command, not null.
         /// </summary>
-        private readonly AutoSortPackage package;
+        private readonly AutoSortSqlProjPackage package;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SortAllCommand"/> class.
@@ -42,26 +42,26 @@ namespace AutoSortVcxprojFilters
                 throw new ArgumentNullException("package");
             }
 
-            this.package = package as AutoSortPackage;
+            this.package = package as AutoSortSqlProjPackage;
 
-            //this.package.GetServiceAsync(typeof(IMenuCommandService)).ContinueWith((task) =>
-            //{
-            //    OleMenuCommandService commandService = task.Result as OleMenuCommandService;
-            //    if (commandService != null)
-            //    {
-            //        var menuCommandID = new CommandID(CommandSet, CommandId);
-            //        var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
-            //        commandService.AddCommand(menuItem);
-            //    }
-            //});
-
-            OleMenuCommandService commandService = this.package.GetServiceAsync(typeof(IMenuCommandService)).Result as OleMenuCommandService;
-            if (commandService != null)
+            this.package.GetServiceAsync(typeof(IMenuCommandService)).ContinueWith((task) =>
             {
-                var menuCommandID = new CommandID(CommandSet, CommandId);
-                var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
-                commandService.AddCommand(menuItem);
-            }
+                OleMenuCommandService commandService = task.Result as OleMenuCommandService;
+                if (commandService != null)
+                {
+                    var menuCommandID = new CommandID(CommandSet, CommandId);
+                    var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
+                    commandService.AddCommand(menuItem);
+                }
+            });
+
+            //OleMenuCommandService commandService = this.package.GetServiceAsync(typeof(IMenuCommandService)).Result as OleMenuCommandService;
+            //if (commandService != null)
+            //{
+            //    var menuCommandID = new CommandID(CommandSet, CommandId);
+            //    var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
+            //    commandService.AddCommand(menuItem);
+            //}
         }
 
         /// <summary>
@@ -95,7 +95,8 @@ namespace AutoSortVcxprojFilters
 
             foreach (var proj in projects)
             {
-                VCXFilterSorter.Sort(proj.FullName );
+                //... Should exclude non .sqlproj ... but the sort function already does that...
+                SqlProjSorter.Sort(proj.FullName);
             }
         }
     }

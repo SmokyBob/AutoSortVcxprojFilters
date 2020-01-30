@@ -28,8 +28,8 @@
     <ProjectGuid>{3C5F872A-2E7C-4B0F-84F8-102460866D6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoSortVcxprojFilters</RootNamespace>
-    <AssemblyName>AutoSortVcxprojFilters</AssemblyName>
+    <RootNamespace>AutoSortSqlProj</RootNamespace>
+    <AssemblyName>AutoSortSqlProj</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
@@ -56,11 +56,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AutoSortPackage.cs" />
+    <Compile Include="AutoSortSqlProjPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortAllCommand.cs" />
-    <Compile Include="SortFilterOnAfterSave.cs" />
-    <Compile Include="VCXFilterSorter.cs" />
+    <Compile Include="SortFileOnAfterSave.cs" />
+    <Compile Include="SqlProjSorter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
