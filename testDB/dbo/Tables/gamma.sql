@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[gamma]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)

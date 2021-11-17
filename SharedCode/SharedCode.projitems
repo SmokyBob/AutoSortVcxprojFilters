@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>66f47563-5faf-418a-a434-c3419c29983e</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SharedCode</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AutoSortSqlProjPackage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SortAllCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SortFileOnAfterSave.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlProjSorter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)index.html" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\AutoSortPackage.ico" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\SortAllCommand.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\SortAllCommandPackage.ico" />
+    <Content Include="$(MSBuildThisFileDirectory)stylesheet.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Key.snk" />
+    <None Include="$(MSBuildThisFileDirectory)SortAllCommandPackage.vsct" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VSPackage.resx" />
+  </ItemGroup>
+</Project>

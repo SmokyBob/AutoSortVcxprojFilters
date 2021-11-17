@@ -9,8 +9,7 @@
     <ProjectGuid>{a45e6d5d-8513-46e7-b249-0809d6988bc5}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath></RootPath>
     <RootNamespace>testDB</RootNamespace>
     <AssemblyName>testDB</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -55,16 +54,17 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
-    <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Roles_Rights.sql" />
-    <Build Include="dbo\Tables\Roles.sql" />
-    <Build Include="dbo\Tables\Rights.sql" />
-    <Build Include="dbo\Tables\Parametri.sql" />
     <Build Include="dbo\Tables\aaa.sql" />
     <Build Include="dbo\Tables\beta.sql" />
+    <Build Include="dbo\Tables\gamma.sql" />
+    <Build Include="dbo\Tables\Parametri.sql" />
+    <Build Include="dbo\Tables\Rights.sql" />
+    <Build Include="dbo\Tables\Roles.sql" />
+    <Build Include="dbo\Tables\Roles_Rights.sql" />
   </ItemGroup>
 </Project>
