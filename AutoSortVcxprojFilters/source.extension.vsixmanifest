@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="9efcf168-e247-4de0-8edd-fae87ad59b6c" Version="1.0" Language="en-US" Publisher="Mauro Solcia" />
+        <Identity Id="9efcf168-e247-4de0-8edd-fae87ad59b6c" Version="1.1" Language="en-US" Publisher="Mauro Solcia" />
         <DisplayName>Auto-sort SqlProj</DisplayName>
         <Description xml:space="preserve">"Automatically" sort .sqlproj XML contents based on path. This solved issues with otherwise complicated 3-way merges that might occur when multiple people add files to the project.</Description>
         <License>LICENSE.txt</License>
+        <Icon>Resources\AutoSortPackage.ico</Icon>
     </Metadata>
     <Installation>
         <InstallationTarget Version="[16.0,17.0)" Id="Microsoft.VisualStudio.Community" />

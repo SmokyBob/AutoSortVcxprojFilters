@@ -149,6 +149,7 @@
   <ItemGroup>
     <Content Include="Resources\AutoSortPackage.ico">
       <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\SortAllCommand.png">
       <IncludeInVSIX>true</IncludeInVSIX>
