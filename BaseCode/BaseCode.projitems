@@ -9,6 +9,7 @@
     <Import_RootNamespace>BaseCode</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)SortFileOnAfterSave.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SqlProjSorter.cs" />
   </ItemGroup>
 </Project>

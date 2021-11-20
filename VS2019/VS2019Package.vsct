@@ -54,9 +54,9 @@
           If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidVS2019PackageCmdSet" id="MenuItemCommandId" priority="0x0100" type="Button">
         <Parent guid="guidVS2019PackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="bmpPicArrows" />
         <Strings>
-          <ButtonText>Invoke MenuItemCommand</ButtonText>
+			<ButtonText>Sort all .sqlproj files</ButtonText>
         </Strings>
       </Button>
     </Buttons>

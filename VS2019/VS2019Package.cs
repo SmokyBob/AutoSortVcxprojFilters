@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -26,6 +28,9 @@ namespace VS2019
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [Guid(VS2019Package.PackageGuidString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionHasSingleProject_string, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionHasMultipleProjects_string, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionOpening_string, PackageAutoLoadFlags.BackgroundLoad)]
     public sealed class VS2019Package : AsyncPackage
     {
         /// <summary>
@@ -48,6 +53,10 @@ namespace VS2019
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
             await MenuItemCommand.InitializeAsync(this);
+
+            //Attach the OnSave event
+            var runningDocumentTable = (IVsRunningDocumentTable)GetGlobalService(typeof(SVsRunningDocumentTable));
+            runningDocumentTable.AdviseRunningDocTableEvents(new BaseCode.SortFileOnAfterSave(runningDocumentTable), out _);
         }
 
         #endregion
