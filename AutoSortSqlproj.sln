@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSortSqlproj", "AutoSortVcxprojFilters\AutoSortSqlproj.csproj", "{3C5F872A-2E7C-4B0F-84F8-102460866D6F}"
 EndProject
@@ -18,10 +18,16 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedCode", "SharedCode\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022", "VS2022\VS2022.csproj", "{5D76E5E9-D0E0-4B3A-A400-AA6A3DD62207}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2019", "VS2019\VS2019.csproj", "{64981470-1310-4EE0-8D46-E24384C96D2E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BaseCode", "BaseCode\BaseCode.shproj", "{30C8CD67-8846-4FF1-8B87-92A65C73CBB2}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		BaseCode\BaseCode.projitems*{30c8cd67-8846-4ff1-8b87-92a65c73cbb2}*SharedItemsImports = 13
 		SharedCode\SharedCode.projitems*{3c5f872a-2e7c-4b0f-84f8-102460866d6f}*SharedItemsImports = 4
 		SharedCode\SharedCode.projitems*{5d76e5e9-d0e0-4b3a-a400-aa6a3dd62207}*SharedItemsImports = 4
+		BaseCode\BaseCode.projitems*{64981470-1310-4ee0-8d46-e24384c96d2e}*SharedItemsImports = 4
 		SharedCode\SharedCode.projitems*{66f47563-5faf-418a-a434-c3419c29983e}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +65,14 @@ Global
 		{5D76E5E9-D0E0-4B3A-A400-AA6A3DD62207}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D76E5E9-D0E0-4B3A-A400-AA6A3DD62207}.Release|x86.ActiveCfg = Release|x86
 		{5D76E5E9-D0E0-4B3A-A400-AA6A3DD62207}.Release|x86.Build.0 = Release|x86
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Debug|x86.Build.0 = Debug|Any CPU
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Release|x86.ActiveCfg = Release|Any CPU
+		{64981470-1310-4EE0-8D46-E24384C96D2E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
