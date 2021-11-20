@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 
-namespace AutoSortSqlProj
+namespace BaseCode
 {
     internal class SortFileOnAfterSave : IVsRunningDocTableEvents
     {

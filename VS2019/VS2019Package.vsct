@@ -22,7 +22,7 @@
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
-  <Commands package="guidSortAllCommandPackage">
+  <Commands package="guidVS2019Package">
     <!-- Inside this section we have different sub-sections: one for the menus, another
     for the menu groups, one for the buttons (the actual commands), one for the combos
     and the last one for the bitmaps used. Each element is identified by a command id that
@@ -36,7 +36,7 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidSortAllCommandPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+      <Group guid="guidVS2019PackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
       </Group>
     </Groups>
@@ -52,11 +52,11 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidSortAllCommandPackageCmdSet" id="SortAllCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidSortAllCommandPackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidVS2019PackageCmdSet" id="MenuItemCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidVS2019PackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPicArrows" />
         <Strings>
-          <ButtonText>Sort all .sqlproj files</ButtonText>
+			<ButtonText>Sort all .sqlproj files</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -74,15 +74,15 @@
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidSortAllCommandPackage" value="{9efcf168-e247-4de0-8edd-fae87ad59b6c}" />
+    <GuidSymbol name="guidVS2019Package" value="{8013fcbf-8878-4e19-ac97-ade920188b00}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidSortAllCommandPackageCmdSet" value="{9efcf168-e247-4de0-8edd-fae87ad59b6c}">
+    <GuidSymbol name="guidVS2019PackageCmdSet" value="{b180da1d-47cd-4261-bb69-1452e784b9d6}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="SortAllCommandId" value="0x0100" />
+      <IDSymbol name="MenuItemCommandId" value="0x0100" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{bb9c5752-e7d7-4140-bad3-8bf10f692188}" >
+    <GuidSymbol name="guidImages" value="{644d236a-4443-4b36-b40e-8988bc3f5cc0}" >
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
