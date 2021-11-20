@@ -1,5 +1,4 @@
-﻿using EnvDTE;
-using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 using System.Linq;
 
-namespace VS2019
+namespace VS2022
 {
     /// <summary>
     /// Command handler
@@ -24,7 +23,7 @@ namespace VS2019
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("b180da1d-47cd-4261-bb69-1452e784b9d6");
+        public static readonly Guid CommandSet = new Guid("c1caa656-1486-45d5-9088-0f4ec7720891");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -82,10 +81,8 @@ namespace VS2019
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
             EnvDTE.DTE dte = await package.GetServiceAsync(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
-            Instance = new MenuItemCommand(package, commandService,dte);
+            Instance = new MenuItemCommand(package, commandService, dte);
         }
-
-        
 
         /// <summary>
         /// This function is the callback used to execute the command when the menu item is clicked.
@@ -97,9 +94,9 @@ namespace VS2019
         private void Execute(object sender, EventArgs e)
         {
             var projects = m_dte.Solution.Projects
-                .Cast<EnvDTE.Project>()
-                .Where(x => { return x?.Object != null; })
-                .ToArray(); ;
+             .Cast<EnvDTE.Project>()
+             .Where(x => { return x?.Object != null; })
+             .ToArray(); ;
 
             foreach (var proj in projects)
             {
