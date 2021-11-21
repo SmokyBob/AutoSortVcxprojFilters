@@ -51,6 +51,11 @@ namespace BaseCode
             {
                 SqlProjSorter.Sort(fullDocumentName);
             }
+            //Sort edmx files
+            if (fullDocumentName.EndsWith(@"edmx"))
+            {
+                EdmxSorter.Sort(fullDocumentName);
+            }
 
             return VSConstants.S_OK;
         }

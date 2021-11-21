@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="beta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parametri">
+          <Key>
+            <PropertyRef Name="Codice" />
+          </Key>
+          <Property Name="Codice" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valore" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descrizione" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Gruppo" Type="nvarchar" MaxLength="50" />
+          <Property Name="flgEditabile" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rights">
+          <Key>
+            <PropertyRef Name="RightId" />
+          </Key>
+          <Property Name="RightId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Group" Type="varchar" MaxLength="100" />
+          <Property Name="EnablingValue" Type="int" Nullable="false" />
+          <Property Name="flgEditable" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles_Rights">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="RightId" />
+          </Key>
+          <Property Name="RoleId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="RightId" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Roles_Rights_Rights">
+          <End Role="Rights" Type="Self.Rights" Multiplicity="1" />
+          <End Role="Roles_Rights" Type="Self.Roles_Rights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rights">
+              <PropertyRef Name="RightId" />
+            </Principal>
+            <Dependent Role="Roles_Rights">
+              <PropertyRef Name="RightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roles_Rights_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Roles_Rights" Type="Self.Roles_Rights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Roles_Rights">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestDBModelStoreContainer">
+          <EntitySet Name="beta" EntityType="Self.beta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parametri" EntityType="Self.Parametri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rights" EntityType="Self.Rights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles_Rights" EntityType="Self.Roles_Rights" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Roles_Rights_Rights" Association="Self.FK_Roles_Rights_Rights">
+            <End Role="Rights" EntitySet="Rights" />
+            <End Role="Roles_Rights" EntitySet="Roles_Rights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roles_Rights_Roles" Association="Self.FK_Roles_Rights_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Roles_Rights" EntitySet="Roles_Rights" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="beta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parametri">
+          <Key>
+            <PropertyRef Name="Codice" />
+          </Key>
+          <Property Name="Codice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Valore" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descrizione" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Gruppo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flgEditabile" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Right">
+          <Key>
+            <PropertyRef Name="RightId" />
+          </Key>
+          <Property Name="RightId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Group" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EnablingValue" Type="Int32" Nullable="false" />
+          <Property Name="flgEditable" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="Self.Roles_Rights" FromRole="Rights" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Rights" Relationship="Self.Roles_Rights" FromRole="Roles" ToRole="Rights" />
+        </EntityType>
+        <Association Name="Roles_Rights">
+          <End Role="Rights" Type="Self.Right" Multiplicity="*" />
+          <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="TestDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="betas" EntityType="Self.beta" />
+          <EntitySet Name="Parametris" EntityType="TestDBModel.Parametri" />
+          <EntitySet Name="Rights" EntityType="Self.Right" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <AssociationSet Name="Roles_Rights" Association="Self.Roles_Rights">
+            <End Role="Rights" EntitySet="Rights" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="TestDBEntities">
+          <EntitySetMapping Name="betas">
+            <EntityTypeMapping TypeName="TestDBModel.beta">
+              <MappingFragment StoreEntitySet="beta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rights">
+            <EntityTypeMapping TypeName="TestDBModel.Right">
+              <MappingFragment StoreEntitySet="Rights">
+                <ScalarProperty Name="RightId" ColumnName="RightId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="EnablingValue" ColumnName="EnablingValue" />
+                <ScalarProperty Name="flgEditable" ColumnName="flgEditable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="TestDBModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Roles_Rights" TypeName="TestDBModel.Roles_Rights" StoreEntitySet="Roles_Rights">
+            <EndProperty Name="Rights">
+              <ScalarProperty Name="RightId" ColumnName="RightId" />
+            </EndProperty>
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Parametris">
+            <EntityTypeMapping TypeName="TestDBModel.Parametri">
+              <MappingFragment StoreEntitySet="Parametri">
+                <ScalarProperty Name="flgEditabile" ColumnName="flgEditabile" />
+                <ScalarProperty Name="Gruppo" ColumnName="Gruppo" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Valore" ColumnName="Valore" />
+                <ScalarProperty Name="Codice" ColumnName="Codice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

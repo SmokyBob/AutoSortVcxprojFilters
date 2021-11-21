@@ -15,10 +15,10 @@
         defining some of the constants that we will use inside the file. -->
 
   <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
-  <Extern href="stdidcmd.h"/>
+  <Extern href="stdidcmd.h" />
 
   <!--This header contains the command ids for the menus provided by the shell. -->
-  <Extern href="vsshlids.h"/>
+  <Extern href="vsshlids.h" />
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
@@ -37,7 +37,7 @@
          must be a menu. -->
     <Groups>
       <Group guid="guidVS2022PackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
       </Group>
     </Groups>
 
@@ -59,6 +59,13 @@
 		  <ButtonText>Sort all .sqlproj files</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidVS2022PackageCmdSet" id="cmdidSortEdmx" priority="0x0100" type="Button">
+        <Parent guid="guidVS2022PackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages1" id="bmpPicSearch" />
+        <Strings>
+			<ButtonText>Sort all .edmx files</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
@@ -68,7 +75,8 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\SortAllCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+      <Bitmap guid="guidImages" href="Resources\SortAllCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages1" href="Resources\SortEdmx.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
   </Commands>
 
@@ -80,9 +88,19 @@
     <GuidSymbol name="guidVS2022PackageCmdSet" value="{cf3c05bf-b9c5-457d-8853-ed9e99aefeaa}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="MenuItemCommandId" value="0x0100" />
+      <IDSymbol value="4129" name="cmdidSortEdmx" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{c6b4706b-47d6-4eeb-88b7-658cb9774e3d}" >
+    <GuidSymbol name="guidImages" value="{c6b4706b-47d6-4eeb-88b7-658cb9774e3d}">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{83cfb36c-36aa-46c0-aa63-a7cdde09f345}" name="guidImages1">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

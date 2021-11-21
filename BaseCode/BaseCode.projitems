@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SortFileOnAfterSave.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EdmxSorter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SqlProjSorter.cs" />
   </ItemGroup>
 </Project>

@@ -57,6 +57,7 @@ namespace VS2022
             //Attach the OnSave event
             var runningDocumentTable = (IVsRunningDocumentTable)GetGlobalService(typeof(SVsRunningDocumentTable));
             runningDocumentTable.AdviseRunningDocTableEvents(new BaseCode.SortFileOnAfterSave(runningDocumentTable), out _);
+            await SortEdmx.InitializeAsync(this);
         }
 
         #endregion
