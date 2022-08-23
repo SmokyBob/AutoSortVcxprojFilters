@@ -21,7 +21,8 @@ namespace BaseCode
 
                     XDocument xmlDocument = XDocument.Load(FullFilePath);
 
-                    foreach (var nameSpace in new List<String> { "{http://schemas.microsoft.com/ado/2009/11/edm/ssdl}", "{http://schemas.microsoft.com/ado/2009/11/edm}" })
+                    foreach (var nameSpace in new List<String> { "{http://schemas.microsoft.com/ado/2009/11/edm/ssdl}", "{http://schemas.microsoft.com/ado/2009/11/edm}"
+                        , "{http://schemas.microsoft.com/ado/2009/11/mapping/cs}" })
                     {
                         //Loop only the EntityContainer elements
                         foreach (var itemgroup in xmlDocument.Root.Descendants(nameSpace+"EntityContainer"))
@@ -45,8 +46,18 @@ namespace BaseCode
                                                    orderby (elem.Name.LocalName.EndsWith("EntityType") ? 1 : (elem.Name.LocalName.EndsWith("Association") ? 2 : 3)), elem.Attribute("Name")?.Value
                                                    select elem);
                         }
+                        foreach (var itemgroup in xmlDocument.Root.Descendants(nameSpace+"EntityContainerMapping"))
+                        {
+                            //Order in file
+                            //  EntitySetMapping
+                            itemgroup.ReplaceNodes(from elem in itemgroup.Elements()
+                                                   orderby elem.Name.LocalName descending, elem.Attribute("Name")?.Value
+                                                   select elem);
+                        }
 
                     }
+
+
 
                     //Binary check if we made any changes
                     var originalBytes = File.ReadAllBytes(FullFilePath);

@@ -147,6 +147,20 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="TestDBEntities">
+			
+					
+          <EntitySetMapping Name="Parametris">
+            <EntityTypeMapping TypeName="TestDBModel.Parametri">
+              <MappingFragment StoreEntitySet="Parametri">
+                <ScalarProperty Name="flgEditabile" ColumnName="flgEditabile" />
+                <ScalarProperty Name="Gruppo" ColumnName="Gruppo" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Valore" ColumnName="Valore" />
+                <ScalarProperty Name="Codice" ColumnName="Codice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="betas">
             <EntityTypeMapping TypeName="TestDBModel.beta">
               <MappingFragment StoreEntitySet="beta">
@@ -181,18 +195,6 @@
               <ScalarProperty Name="RoleId" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Parametris">
-            <EntityTypeMapping TypeName="TestDBModel.Parametri">
-              <MappingFragment StoreEntitySet="Parametri">
-                <ScalarProperty Name="flgEditabile" ColumnName="flgEditabile" />
-                <ScalarProperty Name="Gruppo" ColumnName="Gruppo" />
-                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Valore" ColumnName="Valore" />
-                <ScalarProperty Name="Codice" ColumnName="Codice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
