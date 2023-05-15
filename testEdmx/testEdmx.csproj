@@ -59,6 +59,12 @@
     <Compile Include="Role.cs">
       <DependentUpon>TestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="spTestA_Result.cs">
+      <DependentUpon>TestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spTestB_Result.cs">
+      <DependentUpon>TestDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="TestDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

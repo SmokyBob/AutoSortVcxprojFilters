@@ -48,14 +48,19 @@ namespace BaseCode
                         }
                         foreach (var itemgroup in xmlDocument.Root.Descendants(nameSpace+"EntityContainerMapping"))
                         {
-                            //Order in file
-                            //  EntitySetMapping
-                            itemgroup.ReplaceNodes(from elem in itemgroup.Elements()
+							//Order in file
+							//  EntitySetMapping
+							itemgroup.ReplaceNodes(from elem in itemgroup.Elements()
                                                    orderby elem.Name.LocalName descending, elem.Attribute("Name")?.Value
                                                    select elem);
-                        }
 
-                    }
+							//  FunctionImportMapping
+							itemgroup.ReplaceNodes(from elem in itemgroup.Elements()
+												   orderby elem.Attribute("FunctionImportName")?.Value
+												   select elem);
+						}
+
+					}
 
 
 

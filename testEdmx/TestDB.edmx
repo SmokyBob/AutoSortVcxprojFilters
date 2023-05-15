@@ -71,6 +71,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="spTestA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="param1" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTestB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="param1" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="TestDBModelStoreContainer">
           <EntitySet Name="beta" EntityType="Self.beta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Parametri" EntityType="Self.Parametri" Schema="dbo" store:Type="Tables" />
@@ -131,7 +137,21 @@
           <End Role="Rights" Type="Self.Right" Multiplicity="*" />
           <End Role="Roles" Type="Self.Role" Multiplicity="*" />
         </Association>
+        <ComplexType Name="spTestA_Result">
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="dateTime2" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spTestB_Result">
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="dateTime2" Nullable="false" />
+        </ComplexType>
         <EntityContainer Name="TestDBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="spTestA" ReturnType="Collection(TestDBModel.spTestA_Result)">
+            <Parameter Name="param1" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTestB" ReturnType="Collection(TestDBModel.spTestB_Result)">
+            <Parameter Name="param1" Mode="In" Type="Int32" />
+          </FunctionImport>
           <EntitySet Name="betas" EntityType="Self.beta" />
           <EntitySet Name="Parametris" EntityType="TestDBModel.Parametri" />
           <EntitySet Name="Rights" EntityType="Self.Right" />
@@ -147,8 +167,13 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="TestDBEntities">
-			
-					
+          <EntitySetMapping Name="betas">
+            <EntityTypeMapping TypeName="TestDBModel.beta">
+              <MappingFragment StoreEntitySet="beta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Parametris">
             <EntityTypeMapping TypeName="TestDBModel.Parametri">
               <MappingFragment StoreEntitySet="Parametri">
@@ -158,13 +183,6 @@
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Valore" ColumnName="Valore" />
                 <ScalarProperty Name="Codice" ColumnName="Codice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="betas">
-            <EntityTypeMapping TypeName="TestDBModel.beta">
-              <MappingFragment StoreEntitySet="beta">
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -195,6 +213,22 @@
               <ScalarProperty Name="RoleId" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="spTestA" FunctionName="TestDBModel.Store.spTestA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestDBModel.spTestA_Result">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="dateTime2" ColumnName="dateTime2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTestB" FunctionName="TestDBModel.Store.spTestB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestDBModel.spTestB_Result">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="dateTime2" ColumnName="dateTime2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -209,7 +243,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

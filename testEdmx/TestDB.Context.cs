@@ -12,6 +12,8 @@ namespace testEdmx
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class TestDBEntities : DbContext
     {
@@ -29,5 +31,23 @@ namespace testEdmx
         public virtual DbSet<Parametri> Parametris { get; set; }
         public virtual DbSet<Right> Rights { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+    
+        public virtual ObjectResult<spTestB_Result> spTestB(Nullable<int> param1)
+        {
+            var param1Parameter = param1.HasValue ?
+                new ObjectParameter("param1", param1) :
+                new ObjectParameter("param1", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spTestB_Result>("spTestB", param1Parameter);
+        }
+    
+        public virtual ObjectResult<spTestA_Result> spTestA(Nullable<int> param1)
+        {
+            var param1Parameter = param1.HasValue ?
+                new ObjectParameter("param1", param1) :
+                new ObjectParameter("param1", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spTestA_Result>("spTestA", param1Parameter);
+        }
     }
 }
