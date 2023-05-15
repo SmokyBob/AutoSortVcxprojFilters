@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="VS2022.d80ae87a-ad1e-4e7d-8b5c-7fe8690bec9e" Version="2.5" Language="en-US" Publisher="Mauro Solcia" />
+        <Identity Id="VS2022.d80ae87a-ad1e-4e7d-8b5c-7fe8690bec9e" Version="2.6" Language="en-US" Publisher="Mauro Solcia" />
         <DisplayName>Auto-sort SqlProj and Edmx (VS2022)</DisplayName>
         <Description xml:space="preserve">"Automatically" sort .sqlproj and .edmx XML contents based on path. 
 This solve issues with otherwise complicated 3-way merges that might occur when multiple people add files / tables to the project / model.
